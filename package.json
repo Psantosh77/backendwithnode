@@ -1,5 +1,27 @@
 {
   "dependencies": {
+    "dotenv": "^16.3.2",
     "express": "^4.18.2"
-  }
+  },
+  "name": "backendchaiaurcode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Psantosh77/backendwithnode.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Santosh Pandit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Psantosh77/backendwithnode/issues"
+  },
+  "homepage": "https://github.com/Psantosh77/backendwithnode#readme",
+  "description": ""
 }
