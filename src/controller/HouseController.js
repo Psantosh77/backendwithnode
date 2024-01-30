@@ -18,7 +18,7 @@ const GetHouseWithRoom =(async (req, res)=>{
         const {houseId} = req.body;
         const resultHouse = await HouseModal.findById(houseId)
         const resultRoom = await RoomModal.find({house : houseId })
-        res.json({house: {...resultHouse._doc , room:resultRoom}})
+        res.json({ room:resultRoom})
     }
     catch (err) {
         console.error('Error fetching houses:', err);
