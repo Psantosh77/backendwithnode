@@ -16,6 +16,7 @@ const GetHouse = (async (req, res)=>{
 const GetHouseWithRoom =(async (req, res)=>{
     try{
         const {houseId} = req.body;
+        console.log(houseId)
         const resultHouse = await HouseModal.findById(houseId)
         const resultRoom = await RoomModal.find({house : houseId })
         res.json({ room:resultRoom})
