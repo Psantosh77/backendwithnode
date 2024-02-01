@@ -3,7 +3,7 @@ const  { CreateRent , GetRentByRoomNoAndMonth} = require('../controller/RentCont
 const router  = express.Router()
 
 
-router.get("/" , GetRentByRoomNoAndMonth)
+router.post("/" , GetRentByRoomNoAndMonth)
 router.post("/create" , CreateRent)
 
 
