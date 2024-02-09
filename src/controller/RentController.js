@@ -121,7 +121,8 @@ const UpdateRent = async(req, res)=>{
 
         // })
 
-        console.log("resul;t" , updatedRent)
+        res.status(200).json({ msg:"Rent Update sucessfully" });
+        
     }
     catch(error){
         res.status(500).json({ error: 'Internal Server Error' });
