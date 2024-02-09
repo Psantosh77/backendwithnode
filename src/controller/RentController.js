@@ -33,7 +33,6 @@ if (billMonth !== undefined) {
     query.billMonth = billMonth;
 }
     const rent  = await RentModal.find(query)
-    console.log("rent",rent)
     res.json({data : rent})
 })
 
@@ -44,11 +43,9 @@ const CreateRent = (async(req, res) => {
         const date = moment(billMonth, "MMMM");
         const previousMonth = date.subtract(1, 'months');
         const previousMonthName = previousMonth.format('MMMM');
-        console.log(previousMonthName)
         const PrevMonthRent = await RentModal.find({roomNumber : roomNumber , billMonth:previousMonthName})
         const start =PrevMonthRent && PrevMonthRent.length > 0 && PrevMonthRent[0].end ? PrevMonthRent[0].end : 0
    
-        console.log(PrevMonthRent , PrevMonthRent.length > 0 && PrevMonthRent[0].end)
         const unit      = end - start
         const totalBill = unit * 8
        
@@ -59,7 +56,6 @@ const CreateRent = (async(req, res) => {
         const grandtotal = total - prevAdvance + prevBalance
        
 
-        console.log(paid , grandtotal )
   
         const newRent = new RentModal({
             roomNumber: roomNumber,
