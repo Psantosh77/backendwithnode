@@ -39,8 +39,7 @@ if (billMonth !== undefined) {
 
 
 const CreateRent = (async(req, res) => {
-    const {roomNumber , billMonth , start,end , unit  ,roomRent ,total ,prevAdvance,
-        prevBalance,grandtotal, paid, paidOn, nextBalance,nextAdvance,status} = req.body
+    const {roomNumber , billMonth ,end   ,roomRent , paid, } = req.body
     try{
         const date = moment(billMonth, "MMMM");
         const previousMonth = date.subtract(1, 'months');
@@ -61,10 +60,7 @@ const CreateRent = (async(req, res) => {
        
 
         console.log(paid , grandtotal )
-        const nextAdvance = (paid > grandtotal) ? paid - grandtotal : 0
-        const nextBalance = paid < grandtotal ? grandtotal - paid : 0 
-        
-    
+  
         const newRent = new RentModal({
             roomNumber: roomNumber,
             billMonth:billMonth,
@@ -107,7 +103,7 @@ const UpdateRent = async(req, res)=>{
             nextBalance:nextBalance,
             nextAdvance:nextAdvance,
             remark:"",
-            status:`paid till ${PrevMonthRent.billMonth} with ${nextAdvance > 0 ? `Advance Rs ${nextAdvance}` : "" } ${nextBalance > 0 ? `Balance Rs ${nextBalance}` : "" }` 
+            status:` ${nextAdvance > 0 ? ` Paid till ${PrevMonthRent.billMonth} with Advance Rs ${nextAdvance}` : `Clear till ${PrevMonthRent.billMonth}` } ${nextBalance > 0 ? ` Paid till ${PrevMonthRent.billMonth} with Balance Rs ${nextBalance}` : `Clear till ${PrevMonthRent.billMonth}` }` 
         }, { new: true });
 
         // const result = await RentModal.findByIdAndUpdate({'_id':id} , {
