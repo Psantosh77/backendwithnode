@@ -44,7 +44,9 @@ const CreateRent = (async(req, res) => {
         const previousMonth = date.subtract(1, 'months');
         const previousMonthName = previousMonth.format('MMMM');
         const PrevMonthRent = await RentModal.find({roomNumber : roomNumber , billMonth:previousMonthName})
-        const start =PrevMonthRent && PrevMonthRent.length > 0 && PrevMonthRent[0].end ? PrevMonthRent[0].end : 0
+        const start =PrevMonthRent && PrevMonthRent.length > 0 && PrevMonthRent[0].end 
+
+
    
         const unit      = end - start
         const totalBill = unit * 8
